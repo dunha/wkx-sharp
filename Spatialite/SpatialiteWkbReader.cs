@@ -28,8 +28,9 @@ namespace Wkx
 			{
 				throw new NotSupportedException("Not valid Spatialite Geometry");
 			}
-			GeometryType geometryType = (GeometryType)spatialiteWkbReader.ReadInt32();
-			Dimension dimension = ReadDimension((uint)geometryType);
+			uint type = spatialiteWkbReader.ReadUInt32();
+			GeometryType geometryType = ReadGeometryType(type);
+			Dimension dimension = ReadDimension(type);
 			
             Geometry geometry = null;
             switch (geometryType)
