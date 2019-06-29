@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading;
 using Xunit;
 
@@ -26,7 +27,8 @@ namespace Wkx.Tests
             Assert.Equal(new Point(-1.2, 3.4), Geometry.Deserialize<WktSerializer>("POINT(-1.2 3.4)"));
             Assert.Equal(new Point(1.2, -3.4), Geometry.Deserialize<WktSerializer>("POINT(1.2 -3.4)"));
             
-            Assert.Equal(new Point(12,34), Geometry.Deserialize<WktSerializer>("POINT(1.2e1 3.4e1)"));
+	
+            Assert.Equal(new Point(12, 34), Geometry.Deserialize<WktSerializer>("POINT(1.2e1 3.4e1)"));
             Assert.Equal(new Point(0.12, 0.34), Geometry.Deserialize<WktSerializer>("POINT(1.2e-1 3.4e-1)"));
             Assert.Equal(new Point(-12, -34), Geometry.Deserialize<WktSerializer>("POINT(-1.2e1 -3.4e1)"));
             Assert.Equal(new Point(-0.12, -0.34), Geometry.Deserialize<WktSerializer>("POINT(-1.2e-1 -3.4e-1)"));
@@ -62,6 +64,15 @@ namespace Wkx.Tests
             Thread.CurrentThread.CurrentCulture = new CultureInfo("de");
             Assert.Equal("POINT(1.2 3.4)", new Point(1.2, 3.4).SerializeString<WktSerializer>());
             Thread.CurrentThread.CurrentCulture = currentCulture;
+        }
+
+        [Fact]
+        public void ParseWkt_Performance()
+        {
+            int pointCount = 50000;
+            string wktLineString = string.Concat("LINESTRING(", string.Join(", ", Enumerable.Range(0, pointCount).Select(i => string.Concat(i, " ", i + 1))), ")");
+            LineString lineString = Geometry.Deserialize<WktSerializer>(wktLineString) as LineString;
+            Assert.Equal(pointCount, lineString.Points.Count);
         }
     }
 }
