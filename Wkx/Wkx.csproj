@@ -11,4 +11,7 @@
     <PackageLicenseUrl>https://raw.githubusercontent.com/cschwarz/wkx-sharp/master/LICENSE</PackageLicenseUrl>
     <Company>Christian Schwarz</Company>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Spatialite\" />
+  </ItemGroup>
 </Project>
