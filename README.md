@@ -22,6 +22,6 @@ A WKT/WKB/EWKT/EWKB/Spatialite parser and serializer with support for
 
 This project is forked from [cschwarz/wkx-sharp](https://github.com/cschwarz/wkx-sharp) and adds read/write support for Spatialite geometries.
 
-Note: Spatialite only supports geometries as far as GeometryCollection in the list below.
+Note: Spatialite only supports geometries as far as GeometryCollection in the list above.
 
 Tests have been added for Spatialite geometries
