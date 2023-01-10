@@ -14,4 +14,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Wkx\Wkx.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="testdata.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
