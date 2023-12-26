@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.1;netstandard2.0;net48</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net48</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0</Version>
     <Description>A WKT/WKB/EWKT/EWKB parser and serializer.</Description>
@@ -13,7 +13,4 @@
     <AssemblyVersion>1.1.10.0</AssemblyVersion>
     <FileVersion>1.1.10.0</FileVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Spatialite\" />
-  </ItemGroup>
 </Project>
